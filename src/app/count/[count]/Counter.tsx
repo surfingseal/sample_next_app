@@ -1,5 +1,7 @@
 'use client';
 
+import {useContext} from 'react';
+import {CountContext} from '../../context/CountContext';
 import {
     useQuery,
     useMutation,
@@ -8,9 +10,9 @@ import {
 
 let DB: number = 0;
 
-export default function Counter({initialCount}: {initialCount: number}) {
+export default function Counter() {
+    const initialCount = useContext(CountContext);
     DB = initialCount;
-
     const queryClient = useQueryClient();
     const queryKey: string[] = ['num']
 
@@ -35,10 +37,15 @@ export default function Counter({initialCount}: {initialCount: number}) {
         mutate(data + 1)
     }
 
+    const doMinus = () => {
+        mutate(data - 1)
+    }
+
     return (
         <main>
             <h1>{data}</h1>
             <button onClick={doPlus}>+</button>
+            <button onClick={doMinus}>-</button>
         </main>
     );
 }
