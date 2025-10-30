@@ -2,6 +2,7 @@
 
 import {useContext} from 'react';
 import {CountContext} from '../../context/CountContext';
+import {useEffect} from 'react';
 import {
     useQuery,
     useMutation,
@@ -12,7 +13,11 @@ let DB: number = 0;
 
 export default function Counter() {
     const initialCount = useContext(CountContext);
-    DB = initialCount;
+ 
+    useEffect(() => {
+        DB = initialCount;
+    } , [initialCount]);
+
     const queryClient = useQueryClient();
     const queryKey: string[] = ['num']
 
@@ -30,8 +35,6 @@ export default function Counter() {
             queryClient.invalidateQueries({queryKey: queryKey});
         }
     })
-
-    
 
     const doPlus = () => {
         mutate(data + 1)

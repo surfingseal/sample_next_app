@@ -1,7 +1,7 @@
 import CountProvider from '../../components/CountProvider';
 import Counter from './Counter'; 
 
-export default async function CountPage({ params }: { params: Promise<{ count: string }> | { count: string } }) {
+export default async function CountPage({ params }: { params: Promise<{ count: string }>}) {
     const actualParams = await params;
     const initialCount = Number(actualParams.count);
 
