@@ -21,7 +21,7 @@ export default function Counter() {
     const queryClient = useQueryClient();
     const queryKey: string[] = ['num']
 
-    const {data} = useQuery({
+    const {data = DB} = useQuery({
         queryKey: queryKey,
         queryFn: async () => DB,
     });
