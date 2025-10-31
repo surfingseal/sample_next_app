@@ -46,9 +46,13 @@ export default function Counter() {
 
     return (
         <main>
-            <h1>{data}</h1>
-            <button onClick={doPlus}>+</button>
-            <button onClick={doMinus}>-</button>
+            <h1 className="number">{data}</h1>
+
+
+            <div class="flex-center mt-10">
+                <button className="btn" onClick={doPlus}>+</button>
+                <button className="btn" onClick={doMinus}>-</button>
+            </div>
         </main>
     );
 }
