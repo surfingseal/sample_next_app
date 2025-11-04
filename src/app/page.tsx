@@ -3,7 +3,7 @@ import {useState} from 'react';
 import useSWR from 'swr';
 
 const url = "http://localhost:3000/rh";
-const fetcher = (...args) => fetch(...args)
+const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args)
   .then(res => res.json());
 
 export default function Home() {

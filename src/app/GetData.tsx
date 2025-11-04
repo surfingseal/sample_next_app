@@ -2,7 +2,7 @@
 import useSWR from 'swr';
 
 const url = '/sample.json';
-const fetcher = (...args)=> fetch(...args)
+const fetcher = (...args: Parameters<typeof fetch>)=> fetch(...args)
     .then(res => res.json());
 
 export default function GetData() {
