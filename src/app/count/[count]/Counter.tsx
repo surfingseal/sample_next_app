@@ -50,8 +50,8 @@ export default function Counter() {
 
 
             <div className="flex-center mt-10">
-                <button className="btn" onClick={doPlus}>+</button>
                 <button className="btn" onClick={doMinus}>-</button>
+                <button className="btn" onClick={doPlus}>+</button>
             </div>
         </main>
     );

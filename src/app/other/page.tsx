@@ -1,19 +1,17 @@
-'use client';
-
+'use server';
 import Link from 'next/link';
-import Image from 'next/image';
+import {readData} from '../server-action'
 
-export default function Other() {
+export default async function Other() {
+    const data = await readData();
     return (
         <main>
-            <h1 className="title">Other page</h1>
-            <p className="msg">이건 다른 페이지입니다.</p>
-            <div>
-                <Image src="/sample.jpg" width={200} height={200} alt="wait..."/>
-            </div>
+            <h1 className = "title">Other page</h1>
+            <p className = "msg">메세지를 저장했습니다.</p>
+            <pre className="m-5 p-2 border">{data}</pre>
             <div>
                 <Link href="/">go back!!</Link>
             </div>
         </main>
-    )
+    );
 }
