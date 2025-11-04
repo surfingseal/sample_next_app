@@ -9,7 +9,7 @@ const fetcher = (...args: Parameters<typeof fetch>) => fetch(...args)
 export default function Home() {
   const [input, setInput] = useState('');
   const {data, error, mutate, isLoading} = useSWR(url, fetcher);
-  const doChange = (event) => {
+  const doChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const val = event.target.value;
     setInput(val);
     mutate(url);
