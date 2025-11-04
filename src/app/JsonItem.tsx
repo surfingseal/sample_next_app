@@ -1,6 +1,6 @@
 "use client";
 
-export default function JsonItem(props) {
+export default function JsonItem(props: {data: { name: string, mail: string, age: number}}) {
     return (
         <tr>
             <td>{props.data.name}</td>
